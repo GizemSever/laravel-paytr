@@ -1,0 +1,36 @@
+{
+    "name": "gizemsever/laravel-paytr",
+    "license": "MIT",
+    "version": "1.0.0",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gizem Sever",
+            "email": "gizemsever68@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0|^8.1",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gizemsever\\LaravelPaytr\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gizemsever\\LaravelPaytr\\PaytrServiceProvider"
+            ],
+            "aliases": {
+                "Paytr": "Gizemsever\\LaravelPaytr\\PaytrFacade"
+            }
+        }
+    }
+}
