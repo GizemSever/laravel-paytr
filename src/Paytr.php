@@ -5,8 +5,11 @@
 
 namespace Gizemsever\LaravelPaytr;
 
+use Gizemsever\LaravelPaytr\Payment\Basket;
 use Gizemsever\LaravelPaytr\Payment\Payment;
+use Gizemsever\LaravelPaytr\Payment\PaymentVerification;
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 
 class Paytr
 {
@@ -27,5 +30,20 @@ class Paytr
             ->setCredentials($this->credentials)
             ->setOptions($this->options)
             ->create();
+    }
+
+    public function payment()
+    {
+        return new Payment();
+    }
+
+    public function basket()
+    {
+        return new Basket();
+    }
+
+    public function paymentVerification(Request $request)
+    {
+        return new PaymentVerification($request);
     }
 }

@@ -6,6 +6,7 @@
 namespace Gizemsever\LaravelPaytr;
 
 use Gizemsever\LaravelPaytr\Exceptions\InvalidConfigException;
+use Gizemsever\LaravelPaytr\Payment\Payment;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 

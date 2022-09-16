@@ -326,7 +326,7 @@ class Payment extends PaytrClient
     private function createPaymentToken()
     {
         $hash = $this->getHash();
-        return base64_encode(hash_hmac('sha256', $hash . $this->credentials['merchant_salt'] . $this->credentials['merchant_key'], true));
+        return base64_encode(hash_hmac('sha256', $hash . $this->credentials['merchant_salt'], $this->credentials['merchant_key'], true));
     }
 
     private function formattedPaymentAmount()
@@ -364,6 +364,6 @@ class Payment extends PaytrClient
         $response = $this->callApi('POST', 'odeme/api/get-token', $requestBody);
 //        return $response->getBody();
 //        return json_decode((string) $response->getBody());
-        return new PaytrResponse(json_decode((string) $response->getBody(), true));
+        return new PaytrResponse(json_decode((string)$response->getBody(), true));
     }
 }

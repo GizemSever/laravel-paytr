@@ -19,6 +19,7 @@ class Basket
             $product->getPrice(),
             $quantity
         ];
+        return $this;
     }
 
     /**
@@ -30,7 +31,7 @@ class Basket
     public function addProducts(array $basketProducts)
     {
         array_push($this->products, $basketProducts);
-//        $this->products[] = $basketProducts;
+        return $this;
     }
 
     /**
