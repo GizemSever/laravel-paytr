@@ -44,6 +44,10 @@ class Paytr
 
     public function paymentVerification(Request $request)
     {
-        return new PaymentVerification($request);
+        $verification = new PaymentVerification($request);
+        $verification->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $verification;
     }
 }
