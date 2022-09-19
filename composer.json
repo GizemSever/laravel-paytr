@@ -2,6 +2,7 @@
     "name": "gizemsever/laravel-paytr",
     "license": "MIT",
     "type": "library",
+    "description": "Laravel Paytr Wrapper",
     "authors": [
         {
             "name": "Gizem Sever",
