@@ -30,7 +30,7 @@ class Basket
      */
     public function addProducts(array $basketProducts)
     {
-        array_push($this->products, $basketProducts);
+        $this->products = array_merge($this->products, $basketProducts);
         return $this;
     }
 
