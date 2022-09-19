@@ -1,6 +1,7 @@
 {
     "name": "gizemsever/laravel-paytr",
     "license": "MIT",
+    "version": "1.0.1",
     "type": "library",
     "authors": [
         {
