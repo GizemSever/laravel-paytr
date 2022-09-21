@@ -13,7 +13,7 @@
     "require": {
         "php": "^8.0|^8.1",
         "guzzlehttp/guzzle": "^7.0.1",
-        "illuminate/collections": "8.36",
+        "illuminate/collections": "^8|^9",
         "illuminate/support": "^8.0|^9.0"
     },
     "autoload": {
