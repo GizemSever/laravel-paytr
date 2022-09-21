@@ -41,7 +41,13 @@ class PaytrClient
             $options['headers'] = $headers;
         }
         if ($params) {
-            $options['form_params'] = $params;
+            $requestParams = collect(array_keys($params));
+            $options['multipart'] = $requestParams->map(function ($key) use ($params) {
+                return [
+                    'name' => $key,
+                    'contents' => $params[$key]
+                ];
+            })->toArray();
         }
         $options['timeout'] = $this->options['timeout'];
         return $this->client->request($method, $this->options['base_uri'] . '/' . $url, $options);
