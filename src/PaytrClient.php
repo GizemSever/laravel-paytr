@@ -34,6 +34,11 @@ class PaytrClient
         return $this;
     }
 
+    protected function generateToken(string $hash): string
+    {
+        return base64_encode(hash_hmac('sha256', $hash, $this->credentials['merchant_key'], true));
+    }
+
     protected function callApi(string $method, string $url, $params = null, $headers = null)
     {
         $options = [];
