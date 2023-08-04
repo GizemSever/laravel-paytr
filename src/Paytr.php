@@ -5,6 +5,11 @@
 
 namespace Gizemsever\LaravelPaytr;
 
+use Gizemsever\LaravelPaytr\Direkt\BankIdentification;
+use Gizemsever\LaravelPaytr\Direkt\Capi;
+use Gizemsever\LaravelPaytr\Direkt\DPayment;
+use Gizemsever\LaravelPaytr\Direkt\DPaymentVerification;
+use Gizemsever\LaravelPaytr\Direkt\Installment;
 use Gizemsever\LaravelPaytr\Payment\Basket;
 use Gizemsever\LaravelPaytr\Payment\Payment;
 use Gizemsever\LaravelPaytr\Payment\PaymentVerification;
@@ -37,9 +42,54 @@ class Paytr
         return new Payment();
     }
 
+    public function direktPayment(): DPayment
+    {
+        $payment = new DPayment();
+        $payment->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $payment;
+    }
+
+    public function bin()
+    {
+        $bin = new BankIdentification();
+        $bin->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $bin;
+    }
+
+    public function installments()
+    {
+        $installment = new Installment();
+        $installment->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $installment;
+    }
+
     public function basket()
     {
         return new Basket();
+    }
+
+    public function direktPaymentVerification(Request $request)
+    {
+        $verification = new DPaymentVerification($request);
+        $verification->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $verification;
+    }
+
+    public function capi()
+    {
+        $capi = new Capi();
+        $capi->setClient($this->client)
+            ->setCredentials($this->credentials)
+            ->setOptions($this->options);
+        return $capi;
     }
 
     public function paymentVerification(Request $request)
