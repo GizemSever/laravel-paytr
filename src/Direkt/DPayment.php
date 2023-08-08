@@ -647,7 +647,7 @@ class DPayment extends PaytrClient
             'user_name' => $this->getUserName(),
             'user_address' => $this->getUserAddress(),
             'user_phone' => $this->getUserPhone(),
-            'user_basket' => $this->getBasket()->formatted(),
+            'user_basket' => $this->getBasket()->toString(),
             'debug_on' => $this->getDebugOn(),
             'sync_mode' => $this->getSyncMode(),
             'store_card' => $this->getStoreCard(),

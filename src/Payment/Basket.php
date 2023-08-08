@@ -46,4 +46,9 @@ class Basket
     {
         return base64_encode(json_encode($this->products));
     }
+
+    public function toString(): string
+    {
+        return htmlentities(json_encode($this->products));
+    }
 }
